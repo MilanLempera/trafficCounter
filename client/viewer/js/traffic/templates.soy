@@ -1,0 +1,59 @@
+{namespace lempera.trafficCounter.viewer.traffic.templates autoescape="contextual"}
+
+/**
+ * table template.
+ * @param records
+ * @param interval
+ */
+{template .main}
+  <div class="row show-grid ">
+    <div class="span4">
+      <h3>Traffic</h3>
+    </div>
+    <div class="span4">
+      <div class="trafficCounter-granularity btn-group">
+        <button class="btn {if $interval == 'day'}active{/if}"><a href="#/traffic/day">Day</a></button>
+        <button class="btn {if $interval == 'week'}active{/if}"><a href="#/traffic/week">Week</a></button>
+        <button class="btn {if $interval == 'month'}active{/if}"><a href="#/traffic/month">Month</a></button>
+      </div>
+    </div>
+    <div class="span12">
+      {call .table}
+        {param records: $records /}
+      {/call}
+    </div>
+  </div>
+{/template}
+
+/**
+ * table template.
+ * @param records
+ */
+{template .table}
+  <table  class="table table-striped table-condensed">
+    <tr>
+      <th>čas</th>
+      <th>UP</th>
+      <th>DOWN</th>
+      <th>TOTAL</th>
+    </tr>
+    {foreach $record in $records}
+      {call .row}
+        {param record: $record /}
+      {/call}
+    {/foreach}
+  </table>
+{/template}
+
+/**
+ * table template.
+ * @param record
+ */
+{template .row}
+  <tr>
+    <td class="align-center">{$record['time']}</td>
+    <td>{$record['upload']}</td>
+    <td>{$record['download']}</td>
+    <td>{$record['total']}</td>
+  </tr>
+{/template}

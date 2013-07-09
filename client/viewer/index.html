@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>github.com/Steida/este</title>
+  <link href="/bower_components/bootstrap/docs/assets/css/bootstrap.css" rel="stylesheet">
+  <link href="/client/viewer/css/app.css" rel="stylesheet">
+  <script src="/bower_components/closure-library/closure/goog/base.js"></script>
+  <script src="/client/deps.js"></script>
+  <script src="/client/viewer/js/start.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <span class="brand">trafficCounter</span>
+        <ul class="nav">
+          <li><a href="#/traffic/day">Traffic</a></li>
+          <li><a href="#/users/day">Users</a></li>
+        </ul>
+        <div class="pull-right mil-loading-bar">
+          <div id="loading" class="brand" >
+        </div>
+      </div>
+    </div>
+    <div id="viewer"></div>
+    </div>
+  </div>
+  <script>lempera.trafficCounter.viewer.start({baseUrl:'http://trafficcounter.apiary.io'});</script>
+  <script src="http://localhost:35729/livereload.js"></script>
+</body>
