@@ -1,7 +1,8 @@
 # http://git-scm.com/docs/gitignore
 
 .DS_Store
-este.sublime-workspace
+trafficCounter.sublime-workspace
 
 bower_components/
 node_modules/
+/trafficCounter.sublime-workspace
