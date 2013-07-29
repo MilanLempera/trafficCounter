@@ -1,12 +1,12 @@
 ###*
-  @fileoverview lempera.trafficCounter.viewer.user.View.
+  @fileoverview lempera.trafficCounter.viewer.users.detail.View.
 ###
-goog.provide 'lempera.trafficCounter.viewer.user.View'
+goog.provide 'lempera.trafficCounter.viewer.users.detail.View'
 
 goog.require 'este.app.View'
-goog.require 'lempera.trafficCounter.viewer.user.templates'
+goog.require 'lempera.trafficCounter.viewer.users.detail.templates'
 
-class lempera.trafficCounter.viewer.user.View extends este.app.View
+class lempera.trafficCounter.viewer.users.detail.View extends este.app.View
   ###*
     @type {lempera.trafficCounter.viewer.user.Collection}
     @protected
@@ -42,5 +42,5 @@ class lempera.trafficCounter.viewer.user.View extends este.app.View
     data.ip = @params['ip']
     data.interval = @params['interval']
     data.records = @userData.toJson()
-    html = lempera.trafficCounter.viewer.user.templates.main data
+    html = lempera.trafficCounter.viewer.users.detail.templates.main data
     este.dom.merge @getElement(), html

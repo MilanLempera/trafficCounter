@@ -1,13 +1,13 @@
 ###*
-  @fileoverview lempera.trafficCounter.viewer.users.Presenter.
+  @fileoverview lempera.trafficCounter.viewer.users.list.Presenter.
 ###
-goog.provide 'lempera.trafficCounter.viewer.users.Presenter'
+goog.provide 'lempera.trafficCounter.viewer.users.list.Presenter'
 
 goog.require 'este.app.Presenter'
-goog.require 'lempera.trafficCounter.viewer.users.View'
+goog.require 'lempera.trafficCounter.viewer.users.list.View'
 goog.require 'lempera.trafficCounter.viewer.users.Collection'
 
-class lempera.trafficCounter.viewer.users.Presenter extends este.app.Presenter
+class lempera.trafficCounter.viewer.users.list.Presenter extends este.app.Presenter
 
   ###*
     @typedef {{interval: string}}
@@ -26,7 +26,7 @@ class lempera.trafficCounter.viewer.users.Presenter extends este.app.Presenter
   ###
   constructor: ->
     super()
-    @view = new lempera.trafficCounter.viewer.users.View
+    @view = new lempera.trafficCounter.viewer.users.list.View
 
   ###*
     @override

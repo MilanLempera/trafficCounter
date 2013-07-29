@@ -24,4 +24,4 @@ class lempera.trafficCounter.viewer.traffic.Collection extends este.Collection
     @param {string} interval
   ###
   setParams: (interval) ->
-    @url = '/traffic/'+ interval
+    @url = '/traffic/?interval='+ interval

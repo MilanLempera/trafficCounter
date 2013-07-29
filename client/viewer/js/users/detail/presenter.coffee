@@ -1,13 +1,13 @@
 ###*
-  @fileoverview lempera.trafficCounter.viewer.user.Presenter.
+  @fileoverview lempera.trafficCounter.viewer.users.detail.Presenter.
 ###
-goog.provide 'lempera.trafficCounter.viewer.user.Presenter'
+goog.provide 'lempera.trafficCounter.viewer.users.detail.Presenter'
 
 goog.require 'este.app.Presenter'
-goog.require 'lempera.trafficCounter.viewer.user.View'
-goog.require 'lempera.trafficCounter.viewer.user.Collection'
+goog.require 'lempera.trafficCounter.viewer.users.detail.View'
+goog.require 'lempera.trafficCounter.viewer.users.Collection'
 
-class lempera.trafficCounter.viewer.user.Presenter extends este.app.Presenter
+class lempera.trafficCounter.viewer.users.detail.Presenter extends este.app.Presenter
 
   ###*
     @typedef {{ip: string, interval: number}}
@@ -22,14 +22,14 @@ class lempera.trafficCounter.viewer.user.Presenter extends este.app.Presenter
   ###
   constructor: ->
     super()
-    @view = new lempera.trafficCounter.viewer.user.View
+    @view = new lempera.trafficCounter.viewer.users.detail.View
 
   ###*
     @override
     @param {Object=} params
   ###
   load: (@params = {ip: '', interval: 'day'}) ->
-    @userData = new lempera.trafficCounter.viewer.user.Collection
+    @userData = new lempera.trafficCounter.viewer.users.Collection
     @userData.setParams params.ip, params.interval
     @storage.query @userData
 
