@@ -101,7 +101,7 @@ class lempera.trafficCounter.component.Loading extends este.ui.Component
     @protected
   ###
   animateStep: () ->
-    dotsElement = goog.dom.getElementByClass 'dots', @getElement()
+    dotsElement = @getElementByClass 'dots'
     dotsElement.innerHTML = goog.string.repeat '.', @n++
     @n = 1 if @n > 3
 
