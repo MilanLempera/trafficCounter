@@ -2,25 +2,24 @@
 
 /**
  * table template.
- * @param records
- * @param ip
+ * @param user
  * @param interval
  */
 {template .main}
   <div class="row show-grid ">
     <div class="span4">
-      <h3>User {$ip}</h3>
+      <h3>User {$user['ip']}</h3>
     </div>
     <div class="span4">
       <div class="trafficCounter-granularity btn-group">
-        <a href="#/user/{$ip}/day" class="btn {if $interval == 'day'}active{/if}">Day</a>
-        <a href="#/user/{$ip}/week" class="btn {if $interval == 'week'}active{/if}">Week</a>
-        <a href="#/user/{$ip}/month" class="btn {if $interval == 'month'}active{/if}">Month</a>
+        <a href="#/user/{$user['ip']}/day" class="btn {if $interval == 'day'}active{/if}">Day</a>
+        <a href="#/user/{$user['ip']}/week" class="btn {if $interval == 'week'}active{/if}">Week</a>
+        <a href="#/user/{$user['ip']}/month" class="btn {if $interval == 'month'}active{/if}">Month</a>
       </div>
     </div>
     <div class="span12">
       {call .table}
-        {param records: $records /}
+        {param records: $user['traffic'] /}
       {/call}
           <a href="#/users/{$interval}" class="btn btn-link">Back to user list</a>
     </div>

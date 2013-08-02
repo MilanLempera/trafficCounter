@@ -41,6 +41,6 @@ class lempera.trafficCounter.viewer.users.detail.View extends este.app.View
     data = {}
     data.ip = @params['ip']
     data.interval = @params['interval']
-    data.records = @userData.toJson()
+    data.user = @userData.toJson()
     html = lempera.trafficCounter.viewer.users.detail.templates.main data
     este.dom.merge @getElement(), html

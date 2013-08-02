@@ -29,9 +29,9 @@ class lempera.trafficCounter.viewer.users.detail.Presenter extends este.app.Pres
     @param {Object=} params
   ###
   load: (@params = {ip: '', interval: 'day'}) ->
-    @userData = new lempera.trafficCounter.viewer.users.Collection
-    @userData.setParams params.ip, params.interval
-    @storage.query @userData
+    @userData = new lempera.trafficCounter.viewer.users.Model
+    url = '/users/' + params.ip + '?interval='+ params.interval
+    @storage.load @userData, url
 
   ###*
     Pass loaded data to view if loading was successful.
