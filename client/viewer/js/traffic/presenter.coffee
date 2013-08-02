@@ -35,8 +35,9 @@ class lempera.trafficCounter.viewer.traffic.Presenter extends este.app.Presenter
     @param {Object=} params
   ###
   load: (@params = {interval: 'day'}) ->
-    @traffic = new lempera.trafficCounter.viewer.traffic.Collection()
-    @traffic.setParams(params.interval)
+    @traffic = new lempera.trafficCounter.viewer.traffic.Collection
+    url = '/traffic/?interval='+ params.interval
+    @traffic.setUrl url
     @storage.query @traffic
 
   ###*
