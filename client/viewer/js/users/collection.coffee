@@ -22,7 +22,7 @@ class lempera.trafficCounter.viewer.users.Collection extends este.Collection
     super array
 
   ###*
-    @param {string} interval
+    @param {string} url
   ###
-  setParams: (interval) ->
-    @url = '/users/?interval='+ interval
+  setUrl: (url) ->
+    @url = url;

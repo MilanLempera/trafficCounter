@@ -24,4 +24,3 @@ class lempera.trafficCounter.viewer.users.Model extends este.Model
   ###
   constructor: (json) ->
     super json
-
