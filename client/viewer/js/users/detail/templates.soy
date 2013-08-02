@@ -52,15 +52,19 @@
  * @param record
  */
 {template .row}
-  <tr>
+    {if $record['fupState'] == 1}
+      <tr class="warning">
+    {elseif $record['fupState'] == 2}
+      <tr class="error">
+    {/if}
     <td class="align-center">{$record['time']}</td>
     <td>{$record['uploadFormated']}</td>
     <td>{$record['downloadFormated']}</td>
     <td>{$record['totalFormated']}</td>
     <td class="align-center">
-      {if $record['fupState'] == 'limit1'}
+      {if $record['fupState'] == 1}
         FUP1
-      {elseif $record['fupState'] == 'limit2'}
+      {elseif $record['fupState'] == 2}
         FUP2
       {/if}
     </td>
