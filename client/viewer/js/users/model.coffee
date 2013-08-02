@@ -4,18 +4,9 @@
 goog.provide 'lempera.trafficCounter.viewer.users.Model'
 
 goog.require 'este.Model'
+goog.require 'lempera.trafficCounter.viewer.traffic.Collection'
 
-class lempera.trafficCounter.viewer.users.Model extends este.Model
-  schema:
-    'downloadFormated':
-      'meta': (self) ->
-        goog.format.fileSize(self.get('download'))
-    'uploadFormated':
-      'meta': (self) ->
-        goog.format.fileSize(self.get('upload'))
-    'totalFormated':
-      'meta': (self) ->
-        goog.format.fileSize(self.get('total'))
+class lempera.trafficCounter.viewer.users.Model extends lempera.trafficCounter.viewer.traffic.Model
 
   ###*
     @param {Object=} json
@@ -23,4 +14,12 @@ class lempera.trafficCounter.viewer.users.Model extends este.Model
     @extends {este.Model}
   ###
   constructor: (json) ->
+    super json
+
+  ###*
+    @inheritDoc
+  ###
+  setAttributes: (json) ->
+    if goog.isDefAndNotNull(json['traffic'])  && goog.isArray(json['traffic'])
+      json.traffic = new lempera.trafficCounter.viewer.traffic.Collection json['traffic']
     super json
