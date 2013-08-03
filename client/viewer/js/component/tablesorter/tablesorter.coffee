@@ -1,6 +1,5 @@
 ###*
   @fileoverview A table sorter define events and styles for collection sorting service.
-
   The TABLE should use a THEAD containing TH elements for the table column headers.
 
   Class is inspired by goog.ui.TableSorter.
@@ -139,7 +138,7 @@ class lempera.trafficCounter.component.TableSorter extends este.ui.Component
     oldHeader = @getHeaderColumnByIndex columnIndex
     return unless oldHeader
 
-    className = if reversed then goog.getCssName 'mil-tablesorter-sorted-reversed' else goog.getCssName 'mil-tablesorter-sorted'
+    className = @getClassName reversed
     goog.dom.classes.remove oldHeader, className
 
   ###*
@@ -151,8 +150,18 @@ class lempera.trafficCounter.component.TableSorter extends este.ui.Component
     newHeader = @getHeaderColumnByIndex columnIndex
     return unless newHeader
 
-    className = if reversed then goog.getCssName 'mil-tablesorter-sorted-reversed' else goog.getCssName 'mil-tablesorter-sorted'
+    className = @getClassName reversed
     goog.dom.classes.add newHeader, className
+
+  ###*
+    @type {boolean} reversed
+    @protected
+  ###
+  getClassName: (reversed) ->
+    if reversed
+      goog.getCssName 'mil-tablesorter-sorted-reversed'
+    else
+      goog.getCssName 'mil-tablesorter-sortedd'
 
   ###*
     @type {number} index
