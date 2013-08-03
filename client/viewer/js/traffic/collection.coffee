@@ -24,4 +24,4 @@ class lempera.trafficCounter.viewer.traffic.Collection extends este.Collection
     @param {string} url
   ###
   setUrl: (url) ->
-    @url = url;
+    @url = url

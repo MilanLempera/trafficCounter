@@ -95,8 +95,6 @@ class lempera.trafficCounter.component.Loading extends este.ui.Component
     @loading = true
     @animateDots()
 
-
-
   ###*
     @protected
   ###
