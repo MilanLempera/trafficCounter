@@ -31,17 +31,21 @@
  */
 {template .table}
   <table  class="table table-striped table-condensed">
-    <tr>
-      <th>čas</th>
-      <th>UP</th>
-      <th>DOWN</th>
-      <th>TOTAL</th>
-    </tr>
+    <thead>
+      <tr>
+        <th mil-tablesorter-column="time">čas</th>
+        <th mil-tablesorter-column="upload">UP</th>
+        <th mil-tablesorter-column="download">DOWN</th>
+        <th mil-tablesorter-column="total">TOTAL</th>
+      </tr>
+    </thead>
+    <tbody>
     {foreach $record in $records}
       {call .row}
         {param record: $record /}
       {/call}
     {/foreach}
+    </tbody>
   </table>
 {/template}
 
