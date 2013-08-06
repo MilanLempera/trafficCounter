@@ -11,7 +11,7 @@ class lempera.trafficCounter.viewer.users.Model extends lempera.trafficCounter.v
   ###*
     @param {Object=} json
     @constructor
-    @extends {este.Model}
+    @extends {lempera.trafficCounter.viewer.traffic.Model}
   ###
   constructor: (json) ->
     super json
