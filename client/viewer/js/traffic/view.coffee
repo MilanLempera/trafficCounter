@@ -33,14 +33,14 @@ class lempera.trafficCounter.viewer.traffic.View extends este.app.View
     @override
   ###
   enterDocument: ->
-    @update()
+    @renderView()
     @initTableSorter()
     super()
 
   ###*
     @protected
   ###
-  update: ->
+  renderView: ->
     data ={}
     data.interval = @params.interval
     data.records = @traffic.toJson()
@@ -51,8 +51,19 @@ class lempera.trafficCounter.viewer.traffic.View extends este.app.View
   ###*
     @protected
   ###
+  renderTable: ->
+    data =
+      records: @traffic.toJson()
+    html = lempera.trafficCounter.viewer.traffic.templates.table data
+    tableElement = goog.dom.getElementByClass 'table', @getElement()
+    este.dom.merge tableElement, html
+    return
+
+  ###*
+    @protected
+  ###
   initTableSorter: ->
-    tableElement = document.getElementsByTagName("table")[0]
+    tableElement = goog.dom.getElementByClass 'table', @getElement()
     @tableSorter = new lempera.trafficCounter.component.TableSorter
     @tableSorter.decorate tableElement
 
@@ -60,8 +71,8 @@ class lempera.trafficCounter.viewer.traffic.View extends este.app.View
     @override
   ###
   registerEvents: ->
-    @on @traffic, este.Model.EventType.UPDATE, @update
     @on @tableSorter, lempera.trafficCounter.component.TableSorter.EventType.SORT, @sorting
+    @on @traffic, este.Model.EventType.UPDATE, @renderTable
 
   ###*
    @type {lempera.trafficCounter.component.tablesorter.Event} e
@@ -71,6 +82,4 @@ class lempera.trafficCounter.viewer.traffic.View extends este.app.View
     @traffic.sort
       reversed: e.reversed, by: (item)  ->
         item.get(e.column)
-    @update()
     return
-

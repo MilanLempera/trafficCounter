@@ -20,6 +20,6 @@ class lempera.trafficCounter.viewer.users.Model extends lempera.trafficCounter.v
     @inheritDoc
   ###
   setAttributes: (json) ->
-    if goog.isDefAndNotNull(json['traffic'])  && goog.isArray(json['traffic'])
+    if goog.isArray(json['traffic'])
       json.traffic = new lempera.trafficCounter.viewer.traffic.Collection json['traffic']
     super json
