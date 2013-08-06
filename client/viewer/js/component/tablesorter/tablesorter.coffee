@@ -76,8 +76,7 @@ class lempera.trafficCounter.component.TableSorter extends este.ui.Component
   getClickedColumn: (e) ->
     #Determine what column was clicked.
     #TODO(robbyw): If this table cell contains another table, this could break.
-    ###* @type {Node} ###
-    target = e.target
+    target =  (`/** @type {Node} */`) e.target
     goog.dom.getAncestorByTagNameAndClass target, goog.dom.TagName.TH
 
   ###*
@@ -119,8 +118,8 @@ class lempera.trafficCounter.component.TableSorter extends este.ui.Component
     this.dispatchEvent afterSortEvent
 
   ###*
-    @type {number} columnIndex
-    @type {boolean} reversed
+    @param {number} columnIndex
+    @param {boolean} reversed
     @protected
   ###
   applySortingChanges: (columnIndex, reversed) ->
@@ -130,8 +129,8 @@ class lempera.trafficCounter.component.TableSorter extends este.ui.Component
     @applySortingClass @columnIndex_, @reversed_
 
   ###*
-    @type {number} columnIndex
-    @type {boolean} reversed
+    @param {number} columnIndex
+    @param {boolean} reversed
     @protected
   ###
   removeSortingClass: (columnIndex, reversed) ->
@@ -142,8 +141,8 @@ class lempera.trafficCounter.component.TableSorter extends este.ui.Component
     goog.dom.classes.remove oldHeader, className
 
   ###*
-    @type {number} columnIndex
-    @type {boolean} reversed
+    @param {number} columnIndex
+    @param {boolean} reversed
     @protected
   ###
   applySortingClass: (columnIndex, reversed) ->
@@ -154,17 +153,17 @@ class lempera.trafficCounter.component.TableSorter extends este.ui.Component
     goog.dom.classes.add newHeader, className
 
   ###*
-    @type {boolean} reversed
+    @param {boolean} reversed
     @protected
   ###
   getClassName: (reversed) ->
     if reversed
       goog.getCssName 'mil-tablesorter-sorted-reversed'
     else
-      goog.getCssName 'mil-tablesorter-sortedd'
+      goog.getCssName 'mil-tablesorter-sorted'
 
   ###*
-    @type {number} index
+    @param {number} index
     @protected
   ###
   getHeaderColumnByIndex: (index) ->
