@@ -45,7 +45,7 @@ class lempera.trafficCounter.viewer.traffic.View extends este.app.View
     data.interval = @params.interval
     data.records = @traffic.toJson()
     html = lempera.trafficCounter.viewer.traffic.templates.main data
-    este.dom.merge @getElement(), html
+    @getElement().innerHTML = html;
     return
 
   ###*
@@ -71,14 +71,14 @@ class lempera.trafficCounter.viewer.traffic.View extends este.app.View
     @override
   ###
   registerEvents: ->
-    @on @tableSorter, lempera.trafficCounter.component.TableSorter.EventType.SORT, @sorting
+    @on @tableSorter, lempera.trafficCounter.component.TableSorter.EventType.SORT, @sort
     @on @traffic, este.Model.EventType.UPDATE, @renderTable
 
   ###*
    @type {lempera.trafficCounter.component.tablesorter.Event} e
    @protected
   ###
-  sorting: (e)->
+  sort: (e)->
     @traffic.sort
       reversed: e.reversed, by: (item)  ->
         item.get(e.column)
